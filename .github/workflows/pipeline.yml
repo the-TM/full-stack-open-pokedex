@@ -40,3 +40,6 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           healthcheck: ${{secrets.HEROKU_APP_VERSION_URL}}
           checkstring: ${{ steps.vars.outputs.sha }}
+          rollbackonhealthcheckfailed: true
+        env:
+          HD_SOURCE_VERSION: ${{ steps.vars.outputs.sha }}
